@@ -1,8 +1,6 @@
 package uiTest;
 
 import Conf.config.ConfigProperties;
-import core.BaseSeleniumPage;
-import core.BaseTest;
 import core.SeBaseTest;
 import org.junit.Assert;
 import org.junit.Test;

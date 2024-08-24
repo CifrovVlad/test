@@ -5,7 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
+
 
 import static com.codeborne.selenide.Selenide.$x;
 
