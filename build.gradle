@@ -1,6 +1,9 @@
 plugins {
     id 'java'
     id "io.qameta.allure" version "2.12.0"
+    id "io.freefair.lombok" version "8.10"
+    id "org.gradle.test-retry" version "1.5.3"
+
 }
 
 wrapper {
@@ -46,12 +49,46 @@ dependencies {
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine"
     testImplementation 'com.codeborne:selenide:7.4.2'
     testImplementation 'io.qameta.allure:allure-selenide:2.20.1'
-
     testImplementation "org.slf4j:slf4j-simple:2.0.12"
+    testImplementation 'io.rest-assured:rest-assured:5.5.0'
+    testImplementation 'io.qameta.allure:allure-rest-assured:2.22.0'
+    testImplementation 'com.typesafe:config:1.4.2'
+    testImplementation 'io.qameta.allure:allure-junit5:2.25.0'
+    testImplementation 'com.fasterxml.jackson.core:jackson-databind:2.8.6'
+    testImplementation 'io.qameta.allure:allure-assertj:2.25.0'
+    testImplementation 'org.hamcrest:hamcrest:2.2'
+
+}
+test {
+    retry {
+        maxRetries = 3
+    }
+    testLogging {
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+        exceptionFormat "full"
+    }
+    ignoreFailures = true
+    jvmArgs = [ "-javaagent:${configurations.agent.singleFile}" ]
+    useJUnitPlatform()
 }
 
-test {
-    ignoreFailures = true
-    useJUnitPlatform()
-    jvmArgs = [ "-javaagent:${configurations.agent.singleFile}" ]
+tasks.register('smoke', Test) {
+    testLogging {
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+        exceptionFormat "full"
+    }
+    useJUnitPlatform {
+        includeTags("smoke")
+    }
+}
+
+// Задача для запуска тестов с тегом "regress"
+tasks.register('regress', Test) {
+    testLogging {
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+        exceptionFormat "full"
+    }
+    useJUnitPlatform {
+        includeTags("regress")
+    }
 }
