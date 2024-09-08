@@ -72,23 +72,14 @@ test {
     useJUnitPlatform()
 }
 
-tasks.register('smoke', Test) {
-    testLogging {
-        events "passed", "skipped", "failed", "standardOut", "standardError"
-        exceptionFormat "full"
+task api_test(type : Test) {
+    useJUnitPlatform() {
+        includeTags("api")
     }
-    useJUnitPlatform {
-        includeTags("smoke")
+}
+task ui_test(type : Test) {
+    useJUnitPlatform() {
+        includeTags("ui")
     }
 }
 
-// Задача для запуска тестов с тегом "regress"
-tasks.register('regress', Test) {
-    testLogging {
-        events "passed", "skipped", "failed", "standardOut", "standardError"
-        exceptionFormat "full"
-    }
-    useJUnitPlatform {
-        includeTags("regress")
-    }
-}

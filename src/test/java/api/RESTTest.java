@@ -6,17 +6,14 @@ import helper.AllureListener;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.time.Clock;
 import java.util.*;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.core.IsEqual.equalTo;
-
+@Tag("api")
 public class RESTTest {
     private final static String URL = "https://reqres.in";
     private final static String URL2 = "https://httpbin.org";
@@ -157,7 +154,8 @@ public class RESTTest {
     @Test
     public void getBooksid() {
         Specification.installSpecification(Specification.requestSpec(URL3), Specification.response200());
-        Response response = given().filter(AllureListener.getAllureRestAssured()).when().get("/booking").then().log().all().extract().response();
+        Response response = given().filter(AllureListener.getAllureRestAssured())
+                .when().get("/booking").then().log().all().extract().response();
     }
 
     @Test
@@ -168,7 +166,8 @@ public class RESTTest {
         params.put("checkout", "2019-01-01");
         BookDate bookDate = new BookDate("Jim", "Brown", 111, true, params, "Breakfast");
 
-        Response response = given().filter(AllureListener.getAllureRestAssured()).body(bookDate).when().post("/booking").then().log().all().extract().response();
+        Response response = given().filter(AllureListener.getAllureRestAssured())
+                .body(bookDate).when().post("/booking").then().log().all().extract().response();
     }
 
     @Test
@@ -179,8 +178,10 @@ public class RESTTest {
         params.put("checkout", "2019-01-01");
         BookDate bookDate = new BookDate("James", "Brown", 111, true, params, "Breakfast");
 
-        Response response = given().filter(AllureListener.getAllureRestAssured()).auth().preemptive().basic("admin", "password123")
-                .body(bookDate).when().put("/booking/5").then().log().all().extract().response();
+        Response response = given().filter(AllureListener.getAllureRestAssured())
+                .auth().preemptive().basic("admin", "password123")
+                .body(bookDate).when().put("/booking/273")
+                .then().log().all().extract().response();
     }
 
     @Test
@@ -192,9 +193,8 @@ public class RESTTest {
 
         Response response = given().filter(AllureListener.getAllureRestAssured()).auth().preemptive()
                 .basic("admin", "password123")
-                .header("token", "619ac3eef415c29")
                 .body(params).when()
-                .patch("/booking/5").then().log().all().extract().response();
+                .patch("/booking/273").then().log().all().extract().response();
     }
 
     @Test
@@ -204,7 +204,9 @@ public class RESTTest {
         given().filter(AllureListener.getAllureRestAssured())
                 .auth().preemptive()
                 .basic("admin", "password123")
-                .when().delete("/booking/5");
+                .when().delete("/booking/273");
     }
+
+
 
 }
