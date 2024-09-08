@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="uiTest.UiTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-09-07T16:18:51" hostname="MacBook-Pro.local" time="14.82">
+  <properties/>
+  <testcase name="поиск в Google" classname="uiTest.UiTest" time="7.649"/>
+  <testcase name="поиск в Youtube" classname="uiTest.UiTest" time="4.355"/>
+  <testcase name="регистрация на сайте" classname="uiTest.UiTest" time="2.805"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[[Test worker] INFO com.codeborne.selenide.impl.WebDriverThreadLocalContainer - No webdriver is bound to current thread: 1 - let's create a new webdriver
+[Test worker] INFO com.codeborne.selenide.impl.FileHelper - Creating folder: /Users/vladislavcifrov/Downloads/project/build/downloads/1725725931677_4047_1
+[Test worker] INFO com.codeborne.selenide.webdriver.WebDriverFactory - BrowserName=chrome Version=127.0.6533.119 Platform=mac
+[Test worker] INFO com.codeborne.selenide.webdriver.WebDriverFactory - Selenide v. 7.4.2
+[Test worker] INFO com.codeborne.selenide.webdriver.WebDriverFactory - Selenium WebDriver v. 4.23.1 build revision: 656257d8e9
+[Test worker] INFO com.codeborne.selenide.drivercommands.CreateDriverCommand - Created webdriver in thread 1: ChromeDriver -> ChromeDriver: chrome on mac (f953a603fbcf2aef0d8f93458b6af90f), downloadsFolder: /Users/vladislavcifrov/Downloads/project/build/downloads/1725725931677_4047_1
+[Test worker] INFO com.codeborne.selenide.drivercommands.DisposablesRegistry - Register WebDriverInstance[config=StaticConfig, webDriver=ChromeDriver: chrome on mac (f953a603fbcf2aef0d8f93458b6af90f), proxy=null, downloadsFolder=/Users/vladislavcifrov/Downloads/project/build/downloads/1725725931677_4047_1] in 1 [size=1]
+[Test worker] INFO com.codeborne.selenide.drivercommands.DisposablesRegistry - Add shutdown hook in 1 [size=1]
+[Test worker] INFO com.codeborne.selenide.impl.WebDriverThreadLocalContainer - Browser will stay open due to holdBrowserOpen=true: 1 -> ChromeDriver: chrome on mac (f953a603fbcf2aef0d8f93458b6af90f)
+]]></system-err>
+</testsuite>

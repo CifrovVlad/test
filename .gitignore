@@ -6,9 +6,7 @@
 target
 
 #Gradle
-.gradle
-build
-.gradletasknamecache
+
 
 #IDEA
 .idea/*
