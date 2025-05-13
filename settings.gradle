@@ -1,1 +1,8 @@
+pluginManagement {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()  // Добавляем репозиторий плагинов
+    }
+}
 rootProject.name = 'EquipmentRental'
+
