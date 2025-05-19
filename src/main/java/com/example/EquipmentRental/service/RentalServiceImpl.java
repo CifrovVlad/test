@@ -8,7 +8,7 @@ import com.example.EquipmentRental.model.Rental;
 import org.springframework.stereotype.Service;
 import com.example.EquipmentRental.repository.ClientRepository;
 import com.example.EquipmentRental.repository.EquipmentRepository;
-import com.example.EquipmentRental.repository.RentalRepository;g
+import com.example.EquipmentRental.repository.RentalRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
